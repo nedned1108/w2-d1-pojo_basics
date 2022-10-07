@@ -26,10 +26,40 @@ let peeps = [
 ];
 console.log(countScores(peeps)); //=> { Anthony: 4, Fred: 4, Winnie: 6 }
 ***********************************************************************/
-
+// 1. takes in an arr of score obj
+// 2. score obj has 2 key-value pairs: scorer(string) and a point value(number)
+// 3. return an obj that has key-value pairs listing each person who scored as key
+// and the sum of the total points for the game a value; 
 function countScores(people) {
-  // Your code here
+  let obj = {}
+  people.forEach((person) => {
+    if (obj[person.name] === undefined) {
+      obj[person.name] = person.score;
+    } else if (obj[person.name] !== undefined) {
+      obj[person.name] = obj[person.name] + person.score;
+    }
+  })
+  return obj;
 }
 
+// Example 1:
+let ppl = [{name: "Anthony", score: 10},
+            {name: "Fred", score : 10},
+            {name: "Anthony", score: -8},
+            {name: "Winnie", score: 12}];
+
+console.log(countScores(ppl)); //=> { Anthony: 2, Fred: 10, Winnie: 12 }
+
+// Example 2:
+let peeps = [
+  {name: "Anthony", score: 2},
+  {name: "Winnie", score: 2},
+  {name: "Fred", score: 2},
+  {name: "Winnie", score: 2},
+  {name: "Fred", score: 2},
+  {name: "Anthony", score: 2},
+  {name: "Winnie", score: 2}
+];
+console.log(countScores(peeps)); //=> { Anthony: 4, Fred: 4, Winnie: 6 }
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 module.exports = countScores;
