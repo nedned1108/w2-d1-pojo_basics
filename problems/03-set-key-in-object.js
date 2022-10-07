@@ -12,9 +12,10 @@ setKeyInObject(obj, "apple", "yum"); // => {apple: "yum"}
 let obj1 = {str: "hello"}
 setKeyInObject(obj1, "num", 3); // => {str: "hello", num: 3}
 ***********************************************************************/
+// 1. in = obj, str, val
+// 2. out = obj adding key = str & value = val
 
 function setKeyInObject(obj, string, value) {
-  // Your code here
   obj[string] = value;
   console.log(obj)
   return obj
